@@ -36,7 +36,7 @@ const TableCom = React.createClass({
     fetch(params = {}) {
       this.setState({ loading: true });
       reqwest({
-        url: 'http://api.randomuser.me',
+        url: 'https://api.randomuser.me/',
         method: 'get',
         data: {
           results: 10,
@@ -47,7 +47,7 @@ const TableCom = React.createClass({
         // Read total count from server
         // pagination.total = data.totalCount;
         pagination.total = 200;
-        pagination.showSizeChanger= true;
+        pagination.showQuickJumper = true;
         this.setState({
           loading: false,
           data: data.results,
@@ -77,7 +77,7 @@ const TableCom = React.createClass({
         }, {
           title: '邮箱',
           dataIndex: 'email',
-      }, {
+        }, {
         title: '操作',
         key: 'operation',
         render: (record) => {
@@ -93,7 +93,7 @@ const TableCom = React.createClass({
           }else{
             return(
             <span>
-              <a data-id={record.gender} >查看推荐人</a>
+              <Link to={'/candidate?demandId='+record.gender} data-id={record.gender} >查看候选人</Link>
               <span className="ant-divider"></span>
               <a href="#">取消</a>
             </span>)
@@ -115,22 +115,22 @@ const Demand = () => {
   return (
     <div>
     <Breadcrumb>
-      <Breadcrumb.Item className={style.h3}>需求管理</Breadcrumb.Item>
+      <Breadcrumb.Item className={style.h5}>需求管理</Breadcrumb.Item>
     </Breadcrumb>
     <hr className={style.mr10}/>
     <Form horizontal className="ant-advanced-search-form" >
       <Row gutter={16}>
-        <Col sm={6}>
+        <Col sm={6} xs={6}>
           <FormItem
             label="需求岗位"
-            labelCol={{ span: 5 }}
+            labelCol={{ span: 10 }}
             wrapperCol={{ span: 12 }}
           >
             <Input  size="default" />
           </FormItem>
           <FormItem
             label="招聘类型"
-            labelCol={{ span: 5 }}
+            labelCol={{ span: 10 }}
             wrapperCol={{ span: 12 }}
           >
           <Select defaultValue="请选择" style={{ width: 120 }} >
@@ -141,7 +141,7 @@ const Demand = () => {
           </FormItem>
           <Button type="primary">新建</Button>
         </Col>
-        <Col sm={6}>
+        <Col sm={6} xs={6}>
           <FormItem
             label="职位级别"
             labelCol={{ span: 12 }}
@@ -165,7 +165,7 @@ const Demand = () => {
           </Select>
           </FormItem>
         </Col>
-        <Col sm={6}>
+        <Col sm={6} xs={6}>
           <FormItem
             label="优先级"
             labelCol={{ span: 12 }}
@@ -179,7 +179,7 @@ const Demand = () => {
           </Select>
           </FormItem>
         </Col>
-        <Col sm={5}>
+        <Col sm={5} xs={5}>
           <FormItem
             label="需求类别"
             labelCol={{ span: 12 }}

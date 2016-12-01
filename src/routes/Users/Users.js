@@ -58,7 +58,7 @@ const TableCom = React.createClass({
       // 发起ajax请求数据
       this.setState({ loading: true });
       reqwest({
-        url: 'http://api.randomuser.me',
+        url: 'https://api.randomuser.me',
         method: 'get',
         data: {
           results: 10,
@@ -71,7 +71,7 @@ const TableCom = React.createClass({
         // pagination.total = data.totalCount;
         pagination.total = 200;
         pagination.current =1;
-        pagination.showSizeChanger= true;
+        pagination.showQuickJumper = true;
         this.setState({
           loading: false,
           data: data.results,
@@ -102,7 +102,7 @@ const TableCom = React.createClass({
           dataIndex: 'id',
           sorter: true,
           render: id => `${id.name}`,
-          width: '10%',
+          width: '6%',
         },  {
             title: '密码',
             dataIndex: 'login',
@@ -123,7 +123,7 @@ const TableCom = React.createClass({
               )
             }
           },
-          width: '10%',
+          width: '5%',
         }, {
           title: '手机号',
           dataIndex: 'cell',
@@ -139,6 +139,7 @@ const TableCom = React.createClass({
         }, {
         title: '操作',
         key: 'operation',
+        width: '15%',
         render: (record) => {
             var id = record.location.postcode;
             return(
@@ -275,7 +276,7 @@ const NewAdd =React.createClass({
         <Modal title="修改" visible={this.state.visible}
           onOk={this.handleOk} onCancel={this.handleCancel}
         >
-        <Form  inline onSubmit={this.handleSubmit} >
+        <Form  onSubmit={this.handleSubmit} >
           <Row gutter={16}>
             <Col sm={12}>
               <FormItem
@@ -350,9 +351,9 @@ const NewAdd =React.createClass({
 });
 const User = () => {
   return (
-    <div className={style.pd20}>
+    <div>
     <Breadcrumb>
-      <Breadcrumb.Item className={style.h3}>用户管理</Breadcrumb.Item>
+      <Breadcrumb.Item className={style.h5}>用户管理</Breadcrumb.Item>
     </Breadcrumb>
     <hr className={style.mr10}/>
     <Form inline className="ant-advanced-search-form">

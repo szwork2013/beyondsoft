@@ -7,11 +7,11 @@ function MainLayout({ children,location }) {
   return (
     <div className={styles.normal}>
       <Row>
-        <Col span={6} className={styles.pd10}>
+        <Col span={8} className={styles.pd10}>
           <div className={styles.logo} ></div>
           <h2 className={styles.din}>&nbsp;&nbsp;博彦招聘项目</h2>
         </Col>
-        <Col span={3} offset={15} className={styles.pd10,styles.tr}>
+        <Col span={3} offset={13} className={styles.pd10,styles.tr}>
           <Link to="/message"><div className={styles.mail} ></div></Link>
           <Link to="/personal"><div className={styles.user} ></div></Link>
         </Col>

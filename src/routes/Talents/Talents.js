@@ -229,7 +229,7 @@ const TableWrap = React.createClass({
         data: [],
         selectedRowKeys: [],  // 这里配置默认勾选列
         pagination: {
-          pageSize : 10
+          pageSize : 8
         },
         loading: false,
         visible: false,
@@ -354,7 +354,7 @@ const TableWrap = React.createClass({
         }, {
           title: '职位',
           dataIndex: 'position',
-          width: '6%'
+          width: '10%'
         }, {
           title: '电话',
           dataIndex: 'phone',
@@ -366,13 +366,15 @@ const TableWrap = React.createClass({
             { text: '男', value: 'male' },
             { text: '女', value: 'female' },
           ],
-          width: '5%',
+          width: '10%',
         }, {
           title: '专业',
           dataIndex: 'profession',
+          width: '10%',
         }, {
           title: '工作经验',
           dataIndex: 'experience',
+          width: '10%',
           render:(experience)=>{
             if(experience=='0'){
               return(
@@ -391,9 +393,11 @@ const TableWrap = React.createClass({
         }, {
           title: '工作地点',
           dataIndex: 'address',
+          width: '15%',
         }, {
           title: '人才状态',
           dataIndex: 'state',
+          width: '10%',
           render:(state)=>{
             if(state=='0'){
               return(
@@ -416,6 +420,7 @@ const TableWrap = React.createClass({
         }, {
           title: '操作',
           key: 'operation',
+          width: '15%',
           render: (record) => {
             return(
             <span>
@@ -441,7 +446,7 @@ const TableWrap = React.createClass({
             pagination={this.state.pagination}
             loading={this.state.loading}
             onChange={this.handleTableChange}
-            scroll={{ y: 240 }}
+            // scroll={{ y: 400 }}
           />
           <Modal title="修改" visible={this.state.visible}
             onOk={this.handleOk} onCancel={this.handleCancel}
@@ -457,7 +462,6 @@ const TableWrap = React.createClass({
     },
 });
 const Talents = React.createClass({
-
   render(){
   return (
     <div>
