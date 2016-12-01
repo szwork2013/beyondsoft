@@ -273,7 +273,7 @@ const NewAdd =React.createClass({
     return (
       <div>
         <Button onClick={() =>self.showModal()} type="primary">新增</Button>
-        <Modal title="修改" visible={this.state.visible}
+        <Modal title="新增" visible={this.state.visible}
           onOk={this.handleOk} onCancel={this.handleCancel}
         >
         <Form  onSubmit={this.handleSubmit} >
